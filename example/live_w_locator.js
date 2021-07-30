@@ -112,13 +112,15 @@ $(function() {
                 e.preventDefault();
                 Quagga.stop();
                 self._printCollectedResults();
+                console.log('stop using camera');
             });
             
             // start camera
             $(".controls").on("click", "button.start", function(e) {
                 e.preventDefault();
-                Quagga.start();
+                App.init();
                 self._printCollectedResults();
+                console.log('start using camera');
             });
 
             $(".controls .reader-config-group").on("change", "input, select", function(e) {
@@ -167,6 +169,7 @@ $(function() {
         },
         detachListeners: function() {
             $(".controls").off("click", "button.stop");
+            $(".controls").off("click", "button.start");
             $(".controls .reader-config-group").off("change", "input, select");
         },
         applySetting: function(setting, value) {
