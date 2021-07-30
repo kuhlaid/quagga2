@@ -107,9 +107,17 @@ $(function() {
             var self = this;
 
             self.initCameraSelection();
+            // stop camera
             $(".controls").on("click", "button.stop", function(e) {
                 e.preventDefault();
                 Quagga.stop();
+                self._printCollectedResults();
+            });
+            
+            // start camera
+            $(".controls").on("click", "button.start", function(e) {
+                e.preventDefault();
+                Quagga.start();
                 self._printCollectedResults();
             });
 
